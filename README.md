@@ -34,22 +34,20 @@
 │   │   ├── 📁 java
 │   │   │   ├── 📁 common
 │   │   │   │   ├── 📁 domain
-│   │   │   │   │   └── TimeStamped.java
+│   │   │   │   │   └── BaseEntity.java
 │   │   │   │   ├── 📁 dto
 │   │   │   │   ├── 📁 exception
 │   │   │   ├── 📁 config
 │   │   │   │   └── JpaAuditingConfig.java
-│   │   │   ├── 📁 friend
+│   │   │   ├── 📁 station
 │   │   │   │   ├── 📁 domain
 │   │   │   │   ├── 📁 dto
 │   │   │   │   ├── 📁 controller
 │   │   │   │   ├── 📁 repository
 │   │   │   │   ├── 📁 service
-│   │   │   ├── 📁 member
 │   │   │   ├── 📁 post
-│   │   │   ├── 📁 story
-│   │   │   ├── 📁 storyTag
-│   │   │   └── InstargramServerApplication.java
+│   │   │   ├── 📁 comment
+│   │   │   └── ServerApplication.java
 │   │   ├── 📁 resources
 │   │   │   └── application.yml
 └── └── 📁 test
@@ -59,7 +57,11 @@
 ## 📌 ERD
 https://www.erdcloud.com/d/bbkASdo8Mx9DePAK6
 
-<img width="780" alt="image" src="https://github.com/CDS-Mobile1/CDS_Server/assets/68415644/28b044e3-e6bc-4e2c-9650-7fd2cbf3790f">
+- 자세한 테이블 정보는 다음 노션 페이지에 정리해두었습니다 !
+
+- [📝 Database](https://sungah.notion.site/Database-a47ba5376b4d4d5d90bbc01864eafbad)
+
+<img width="884" alt="image" src="https://github.com/32th-SOPT-SOPKATHON-7/SOPKATHON-SERVER/assets/68415644/55fa3cdc-9589-4a21-a92f-ad398731ac46">
 
 <br>
 <br>
@@ -78,7 +80,7 @@ https://www.erdcloud.com/d/bbkASdo8Mx9DePAK6
 | 프로젝트 세팅 | `예슬🌮` | 완료 |
 | EC2 세팅 | `예슬🌮` | 완료 |
 | RDS 세팅 | `예슬🌮` | 완료 |
-| DB 설계 | `예슬🌮` `동규🍣` | 진행 예정 |
+| DB 설계 | `예슬🌮` `동규🍣` | 완료 |
 | API 명세서 작성 | `예슬🌮` `동규🍣` | 진행 예정 |
 | API 개발 | `예슬🌮` `동규🍣` | 진행 예정 |
  
