@@ -8,10 +8,7 @@ import com.sopt.SopkathonServer.common.response.SuccessStatus;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,5 +22,12 @@ public class PostController {
             @RequestBody PostRequestCreateDto createDto
     ) {
         return ApiResponseDto.success(SuccessStatus.POST_CREATE_SUCCESS, postService.addPost(createDto)) ;
+    }
+
+    @GetMapping("/detail/{postId}")
+    public ApiResponseDto orderDetails(
+            @PathVariable("postId") Long postId
+    ){
+        return ApiResponseDto.success(SuccessStatus.GET_POST_DETAIL, postService.getDetailPost(postId));
     }
 }
