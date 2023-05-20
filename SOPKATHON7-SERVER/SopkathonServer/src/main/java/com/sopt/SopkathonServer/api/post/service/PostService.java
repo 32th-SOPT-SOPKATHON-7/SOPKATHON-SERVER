@@ -6,16 +6,21 @@ import com.sopt.SopkathonServer.api.comment.repository.CommentRepository;
 import com.sopt.SopkathonServer.api.post.domain.Post;
 import com.sopt.SopkathonServer.api.post.dto.PostRequestCreateDto;
 import com.sopt.SopkathonServer.api.post.dto.response.PostResponseDetailDto;
+import com.sopt.SopkathonServer.api.post.dto.PostRequestDto;
 import com.sopt.SopkathonServer.api.post.dto.response.PostResponseDto;
 import com.sopt.SopkathonServer.api.post.repository.PostRepository;
 import com.sopt.SopkathonServer.api.station.domain.Station;
+import com.sopt.SopkathonServer.api.station.dto.HotPostDto;
+import com.sopt.SopkathonServer.api.station.dto.StationListDto;
+import com.sopt.SopkathonServer.api.post.dto.PostRequestCreateDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
 import com.sopt.SopkathonServer.api.station.repository.StationRepository;
 import com.sopt.SopkathonServer.common.exception.BusinessException;
 import com.sopt.SopkathonServer.common.response.ErrorStatus;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -23,14 +28,29 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class PostService {
+
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
     private final StationRepository stationRepository;
+
+    @Transactional
+    public List<PostRequestDto> getPostByNew(String stationName) {
+        List<PostRequestDto> result = new ArrayList<>();
+        List<Post> posts = postRepository.findAllByOrderByCreatedAtDesc();
+
+        for (Post post : posts) {
+            if (post.getStation().getName().equals(stationName))
+                result.add(PostRequestDto.of(post));
+        }
+        return result;
+    }
+
 
     @Transactional
     public PostResponseDto addPost(PostRequestCreateDto createDto) {
@@ -42,7 +62,6 @@ public class PostService {
                 .title(createDto.getTitle())
                 .build();
         Post savedPost = postRepository.save(savePost);
-        log.info(savedPost.getTitle());
         return PostResponseDto.of(
                 savedPost.getId()
                 , savedPost.getStation().getName()
