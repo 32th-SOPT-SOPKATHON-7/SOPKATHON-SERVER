@@ -37,5 +37,6 @@ public class Post extends BaseEntity {
         this.title = title;
         this.content = content;
         this.likeCnt = likeCnt;
+        this.station.addPost(this);
     }
 }
