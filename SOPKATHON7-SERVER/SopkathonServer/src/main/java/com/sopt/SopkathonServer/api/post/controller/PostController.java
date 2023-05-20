@@ -21,10 +21,10 @@ public class PostController {
 
     private final PostService postService;
 
-    @GetMapping("/trend")
+    @GetMapping("/new")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponseDto<List<PostRequestDto>> getAllByTrend(@RequestParam String stationName) {
-        return ApiResponseDto.success(SuccessStatus.GET_ALL_POST_TREND_SUCCESS, postService.getPostByTrend(stationName));
+    public ApiResponseDto<List<PostRequestDto>> getAllByNew(@RequestParam String stationName) {
+        return ApiResponseDto.success(SuccessStatus.GET_ALL_POST_NEW_SUCCESS, postService.getPostByNew(stationName));
     }
 
 }

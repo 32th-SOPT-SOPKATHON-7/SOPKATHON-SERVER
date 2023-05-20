@@ -20,7 +20,7 @@ public class PostService {
 
     private final PostRepository postRepository;
 
-    public List<PostRequestDto> getPostByTrend(String stationName) {
+    public List<PostRequestDto> getPostByNew(String stationName) {
         List<PostRequestDto> result = new ArrayList<>();
         List<Post> posts = postRepository.findAllByOrderByCreatedAtDesc();
 
