@@ -12,9 +12,9 @@ import static lombok.AccessLevel.*;
 public enum SuccessStatus {
 
     /**
-     * member
+     * station
      */
-    SIGNUP_SUCCESS(HttpStatus.CREATED, "회원가입 성공")
+    GET_ALL_STATION_SUCCESS(HttpStatus.OK, "메인 지도 화면 조회 성공")
     ;
 
     private final HttpStatus httpStatus;
