@@ -1,6 +1,11 @@
 package com.sopt.SopkathonServer.api.post.service;
 
+import com.sopt.SopkathonServer.api.comment.domain.Comment;
+import com.sopt.SopkathonServer.api.comment.dto.response.CommentResponseDto;
+import com.sopt.SopkathonServer.api.comment.repository.CommentRepository;
 import com.sopt.SopkathonServer.api.post.domain.Post;
+import com.sopt.SopkathonServer.api.post.dto.PostRequestCreateDto;
+import com.sopt.SopkathonServer.api.post.dto.response.PostResponseDetailDto;
 import com.sopt.SopkathonServer.api.post.dto.PostRequestDto;
 import com.sopt.SopkathonServer.api.post.dto.response.PostResponseDto;
 import com.sopt.SopkathonServer.api.post.repository.PostRepository;
@@ -18,6 +23,11 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +36,7 @@ import java.util.List;
 public class PostService {
 
     private final PostRepository postRepository;
+    private final CommentRepository commentRepository;
     private final StationRepository stationRepository;
 
     @Transactional
@@ -59,5 +70,31 @@ public class PostService {
                 , savedPost.getLikeCnt()
                 ,  savedPost.getCreatedAt()
                 , savedPost.getUpdatedAt());
+    }
+
+    @Transactional
+    public PostResponseDetailDto getDetailPost(final Long postId) {
+        List<CommentResponseDto> commentList = commentRepository.findAllByPostId(postId)
+                .stream().map(comment -> CommentResponseDto.of(
+                        comment.getId()
+                        , postId
+                        , comment.getContent()
+                        , comment.getCreatedAt()
+                        , comment.getUpdatedAt()
+                ))
+                .collect(Collectors.toList());
+
+
+        Post findPost = postRepository.findById(postId).orElseThrow(() -> new BusinessException(ErrorStatus.POST_NOT_FOUND));
+        return PostResponseDetailDto.of(
+                postId
+                , findPost.getStation().getName()
+                , findPost.getTitle()
+                , findPost.getContent()
+                , findPost.getLikeCnt()
+                , findPost.getCreatedAt()
+                , findPost.getUpdatedAt()
+                , commentList
+        );
     }
 }
