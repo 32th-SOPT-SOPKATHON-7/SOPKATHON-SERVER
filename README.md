@@ -11,7 +11,7 @@
 
 | 조예슬 | 정동규 |
 | :---------:|:----------:|
-|<img width="300" alt="image" src="https://github.com/CDS-Mobile1/CDS_Server/assets/68415644/419dcac6-e13d-4d65-b058-250fcd869bff"> | <img width="300" alt="image" src="https://github.com/CDS-Mobile1/CDS_Server/assets/68415644/dd390d83-9088-4c83-80a5-36df1002362d">| 
+|<img width="300" alt="image" src="https://github.com/CDS-Mobile1/CDS_Server/assets/68415644/419dcac6-e13d-4d65-b058-250fcd869bff"> | <img width="270" height="330" alt="image" src="https://github.com/32th-SOPT-SOPKATHON-7/SOPKATHON-SERVER/assets/86935274/a92599bb-03e6-492a-bc5f-39b59c5f3394">| 
 | [yeseul106](https://github.com/yeseul106) | [yummygyudon](https://github.com/yummygyudon) |
 
 
