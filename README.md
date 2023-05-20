@@ -68,7 +68,9 @@ https://www.erdcloud.com/d/bbkASdo8Mx9DePAK6
 
 ## 🖇 Api 명세서
 
+[API 명세서 확인](https://sungah.notion.site/7b817287556f4981a6ebf5a7b75c9774?v=52aab194d60144b987224e4c815e280e)
 
+<br>
 
 
 ## 🙋🏻‍♀️ 역할 분담
@@ -90,6 +92,8 @@ https://www.erdcloud.com/d/bbkASdo8Mx9DePAK6
 ## ✅ Coding Convention
 
  - [💻 코드 컨벤션](https://sungah.notion.site/Code-Convention-30c62e9b53cc45099b2b13d7cfa245e0)
+
+<br>
  
 ## ✅ Git Convention
 
