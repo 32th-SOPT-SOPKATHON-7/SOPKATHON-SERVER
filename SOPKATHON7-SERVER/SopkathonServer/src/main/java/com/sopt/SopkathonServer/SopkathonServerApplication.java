@@ -9,5 +9,4 @@ public class SopkathonServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SopkathonServerApplication.class, args);
 	}
-
 }
