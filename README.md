@@ -14,9 +14,15 @@
 |<img width="300" alt="image" src="https://github.com/CDS-Mobile1/CDS_Server/assets/68415644/419dcac6-e13d-4d65-b058-250fcd869bff"> | <img width="270" height="330" alt="image" src="https://github.com/32th-SOPT-SOPKATHON-7/SOPKATHON-SERVER/assets/86935274/a92599bb-03e6-492a-bc5f-39b59c5f3394">| 
 | [yeseul106](https://github.com/yeseul106) | [yummygyudon](https://github.com/yummygyudon) |
 
+<br/>
+
+### 🚨 응원의 메시지를 담은 파트 팀원들의 사진촬영
+
+<img width="550" height="400" alt="team_image" src="https://github.com/32th-SOPT-SOPKATHON-7/SOPKATHON-SERVER/assets/86935274/b11b96cc-f404-4ef2-8678-1ff7ee09265b">
 
 
-<br>
+<br/>
+<br/>
 
 ## 🗂️ Project Foldering
 
