@@ -2,6 +2,7 @@ package com.sopt.SopkathonServer.api.post.service;
 
 import com.sopt.SopkathonServer.api.post.domain.Post;
 import com.sopt.SopkathonServer.api.post.dto.PostRequestDto;
+import com.sopt.SopkathonServer.api.post.dto.response.PostResponseDto;
 import com.sopt.SopkathonServer.api.post.repository.PostRepository;
 import com.sopt.SopkathonServer.api.station.domain.Station;
 import com.sopt.SopkathonServer.api.station.dto.HotPostDto;
@@ -17,10 +18,6 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +51,6 @@ public class PostService {
                 .title(createDto.getTitle())
                 .build();
         Post savedPost = postRepository.save(savePost);
-        log.info(savedPost.getTitle());
         return PostResponseDto.of(
                 savedPost.getId()
                 , savedPost.getStation().getName()

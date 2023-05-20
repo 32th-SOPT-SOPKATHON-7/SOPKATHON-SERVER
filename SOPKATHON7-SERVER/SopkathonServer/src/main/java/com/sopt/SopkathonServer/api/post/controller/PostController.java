@@ -1,5 +1,6 @@
 package com.sopt.SopkathonServer.api.post.controller;
 
+import com.sopt.SopkathonServer.api.post.dto.PostRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +11,10 @@ import java.util.List;
 import static lombok.AccessLevel.PRIVATE;
 
 import com.sopt.SopkathonServer.api.post.dto.PostRequestCreateDto;
-import com.sopt.SopkathonServer.api.post.dto.response.PostResponseDto;
 import com.sopt.SopkathonServer.api.post.service.PostService;
 import com.sopt.SopkathonServer.common.dto.ApiResponseDto;
 import com.sopt.SopkathonServer.common.response.SuccessStatus;
-import lombok.NoArgsConstructor;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

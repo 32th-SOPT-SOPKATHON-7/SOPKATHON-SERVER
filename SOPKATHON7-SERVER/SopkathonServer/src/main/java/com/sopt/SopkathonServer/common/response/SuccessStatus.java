@@ -18,7 +18,7 @@ public enum SuccessStatus {
     GET_ALL_POST_NEW_SUCCESS(HttpStatus.OK, "해당 지하철역 게시물 최신순 조회 성공"),
     GET_ALL_POST_TREND_SUCCESS(HttpStatus.OK, "해당 지하철역 게시물 트렌드순 조회 성공"),
     POST_CREATE_SUCCESS(HttpStatus.CREATED, "게시글 작성 성공"),
-    COMMENT_CREATE_SUCCESS(HttpStatus.CREATED, "댓글 작성 성공"),
+    COMMENT_CREATE_SUCCESS(HttpStatus.CREATED, "댓글 작성 성공")
     ;
 
     private final HttpStatus httpStatus;
