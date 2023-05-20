@@ -21,7 +21,7 @@ import static lombok.AccessLevel.PROTECTED;
 public class Station extends BaseEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long id;
+    private Long id ;
 
     @Column(nullable = false)
     private String line;

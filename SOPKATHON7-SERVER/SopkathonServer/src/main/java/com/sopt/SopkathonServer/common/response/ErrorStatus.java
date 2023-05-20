@@ -20,7 +20,8 @@ public enum ErrorStatus {
      * NOT_FOUND
      */
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 멤버가 존재하지 않습니다."),
-
+    POST_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 게시글이 존재하지 않습니다."),
+    STATION_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 지하철역이 존재하지 않습니다."),
     /**
      * 500 SERVER_ERROR
      */
