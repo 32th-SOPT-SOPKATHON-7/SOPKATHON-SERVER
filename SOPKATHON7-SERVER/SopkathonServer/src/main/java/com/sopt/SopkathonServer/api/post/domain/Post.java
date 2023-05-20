@@ -1,5 +1,6 @@
 package com.sopt.SopkathonServer.api.post.domain;
 
+import com.sopt.SopkathonServer.api.comment.domain.Comment;
 import com.sopt.SopkathonServer.api.station.domain.Station;
 import com.sopt.SopkathonServer.common.domain.BaseEntity;
 import lombok.AccessLevel;
@@ -8,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -31,6 +34,9 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private Integer likeCnt;
 
+    @OneToMany(mappedBy = "post")
+    private List<Comment> commentList = new ArrayList<>();
+
     @Builder
     public Post(Station station, String title, String content, Integer likeCnt) {
         this.station = station;
@@ -39,4 +45,6 @@ public class Post extends BaseEntity {
         this.likeCnt = likeCnt;
         this.station.addPost(this);
     }
+
+    public void addComment(Comment comment) { this.commentList.add(comment); }
 }
