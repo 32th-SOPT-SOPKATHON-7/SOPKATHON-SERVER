@@ -1,6 +1,5 @@
 package com.sopt.SopkathonServer.api.post.service;
 
-import com.sopt.SopkathonServer.api.comment.domain.Comment;
 import com.sopt.SopkathonServer.api.comment.dto.response.CommentResponseDto;
 import com.sopt.SopkathonServer.api.comment.repository.CommentRepository;
 import com.sopt.SopkathonServer.api.post.domain.Post;
@@ -10,26 +9,18 @@ import com.sopt.SopkathonServer.api.post.dto.PostRequestDto;
 import com.sopt.SopkathonServer.api.post.dto.response.PostResponseDto;
 import com.sopt.SopkathonServer.api.post.repository.PostRepository;
 import com.sopt.SopkathonServer.api.station.domain.Station;
-import com.sopt.SopkathonServer.api.station.dto.HotPostDto;
-import com.sopt.SopkathonServer.api.station.dto.StationListDto;
-import com.sopt.SopkathonServer.api.post.dto.PostRequestCreateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.sopt.SopkathonServer.api.station.repository.StationRepository;
 import com.sopt.SopkathonServer.common.exception.BusinessException;
 import com.sopt.SopkathonServer.common.response.ErrorStatus;
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -49,6 +40,18 @@ public class PostService {
                 result.add(PostRequestDto.of(post));
         }
         return result;
+    }
+
+    @Transactional
+    public List<PostRequestDto> getPostByTrend(String stationName) {
+        List<PostRequestDto> trendResult = new ArrayList<>();
+        List<Post> posts = postRepository.findAllByOrderByLikeCntDesc();
+
+        for (Post post : posts) {
+            if (post.getStation().getName().equals(stationName))
+                trendResult.add(PostRequestDto.of(post));
+        }
+        return trendResult;
     }
 
 

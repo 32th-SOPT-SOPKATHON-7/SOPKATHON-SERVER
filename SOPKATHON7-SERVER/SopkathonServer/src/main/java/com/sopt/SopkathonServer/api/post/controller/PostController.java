@@ -40,6 +40,12 @@ public class PostController {
         return ApiResponseDto.success(SuccessStatus.GET_ALL_POST_NEW_SUCCESS, postService.getPostByNew(stationName));
     }
 
+    @GetMapping("/trend")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponseDto<List<PostRequestDto>> getAllByTrend(@RequestParam String stationName) {
+        return ApiResponseDto.success(SuccessStatus.GET_ALL_POST_TREND_SUCCESS, postService.getPostByTrend(stationName));
+    }
+
     @PostMapping("/create")
     public ApiResponseDto orderAdd(
             @RequestBody PostRequestCreateDto createDto
